@@ -6,12 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        
+        /* 속성 선택자 */
+        p[name=pname]{
+            background-color: darkgrey;
+        }
+        p[class^="pcl"]{
+            background-color:brown;
+        }
+        p[class$="abc"]{
+            background-color:pink;
+        }
+        p[class*="lab"]{
+            background-color:blue;
+        }
     </style>
 </head>
 <body>
     <p name="pname">Test1 문자열 입니다.</p>
     <p id="pid">Test2 문자열 입니다.</p>
     <p class="pclass">Test3 문자열 입니다.</p>
+    <p class="pclabc">Test4 문자열 입니다.</p>
 </body>
 </html>

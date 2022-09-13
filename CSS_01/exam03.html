@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 자손 선택자 */
+        div>h4{
+            background-color: beige;
+        }
+        /* 후손 선택자 */
+        div ul li h4{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h4>자손1 입니다.</h4>
+        <h4>자손2 입니다.</h4>
+        <ul>
+            <li>
+                <h4>후손목록</h4>
+            </li>
+            <li>후손1</li>
+            <li>후손2</li>
+        </ul>
+    </div>
+    <h4>
+        여기는 다른 family입니다.
+    </h4>
+</body>
+</html>
