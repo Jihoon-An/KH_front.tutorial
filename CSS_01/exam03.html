@@ -12,11 +12,30 @@
         }
         /* 후손 선택자 */
         div ul li h4{
-            background-color: blueviolet;
+            /*background-color: blueviolet;*/
+        }
+        /* 동위 선택자 */
+        p+h4{
+            background-color: yellow;
         }
     </style>
 </head>
 <body>
+    <div>
+        <h4>자손1 입니다.</h4>
+        <h4>자손2 입니다.</h4>
+        <ul>
+            <li>
+                <p>제목</p>
+                <h4>후손목록</h4>
+            </li>
+            <li>후손1</li>
+            <li>후손2</li>
+        </ul>
+    </div>
+    <h4>
+        여기는 다른 family입니다.
+    </h4>
     <div>
         <h4>자손1 입니다.</h4>
         <h4>자손2 입니다.</h4>
