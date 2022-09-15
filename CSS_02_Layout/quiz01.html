@@ -7,36 +7,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        * {
             box-sizing: border-box;
         }
-        .container{
+
+        .board {
+            display: block;
+            width: 500px;
             border: 1px solid black;
-            width: 600px;
-            height: 800px;
+            overflow: hidden;
         }
-        .container>div{
+
+        header>div {
+            display: block;
             border: 1px solid black;
-            height: 100%;
             float: left;
+            height: 70px;
         }
-        .left{
+
+        #logo {
+            width: 15%;
+        }
+
+        #title {
+            width: 65%;
+        }
+
+        #reserved {
+            width: 20%;
+        }
+
+        .contents {
+            height: 400px;
+        }
+
+        .contents>div {
+            display: block;
+            float: left;
+            height: 100%;
+        }
+
+        #main {
+            width: 70%;
+            border: 1px solid black;
+        }
+
+        #mypage {
+            width: 30%;
+        }
+
+        .navigator {
+            display: block;
+            width: 100%;
+            height: 40px;
+            overflow: hidden;
+            
+        }
+
+        .mypage>div {
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        #loginbox {
+            height: 35%;
+        }
+
+        #emailbox {
+            height: 65%;
+        }
+
+        .footer {
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        ul {
+            overflow: hidden;
+            padding: 0px;
+            margin: 0px;
+            height: 40px;
+        }
+
+        ul>li {
+            float: left;
+            list-style-type: none;
+            margin: 0px;
             width: 25%;
+            height: 100%;
+            text-align: center;
+            border: 1px solid black;
+            line-height: 35px;
         }
-        .center{
-            width: 50%;
+
+        ul>:hover{
+            cursor: pointer;
+            background-color: black;
+            color: white;
         }
-        .right{
-            width: 25%;
-        }
+
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="left"></div>
-        <div class="center"></div>
-        <div class="right"></div>
+    <div class="board">
+
+        <header>
+            <div id="logo">Logo</div>
+            <div id="title">Title</div>
+            <div id="reserved">reserved</div>
+        </header>
+
+        <div class="navigator">
+            <ul>
+                <li>Home</li>
+                <li>About Me</li>
+                <li>Portfolio</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+
+        <div class="contents">
+            <div id="main">Main</div>
+            <div class="mypage" id="mypage">
+                <div id="loginbox">LoginBox</div>
+                <div id="emailbox">EmailBox</div>
+            </div>
+        </div>
+
+        <div class="footer">footer</div>
     </div>
 </body>
 
