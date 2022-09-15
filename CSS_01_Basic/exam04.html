@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*반응 선택자
+        hover : 마우스가 올라갈 때
+        active : 클릭할 때
+
+        cursor:pointer; -> 마우스 포인터 변경함.
+        ------------------------------------------
+        p:hover{
+            background-color:blue;
+            cursor:pointer;
+        }
+        p:active{
+            color:yellow;
+        }
+        */
+    
+        
+        /* 구조 선택자
+        first-child : 첫번째 녀석.
+        last-child : 마지막 녀석.
+        nth-child() : 몇번째 녀석.
+        nth-last-child() : 뒤에서 부터 카운트.
+
+        n을 이용해 다수 선택 가능
+        even : 짝수
+        odd : 홀수
+        ------------------------------------------
+        div>p:first-child{
+            color:red;
+        }
+        div>p:nth-last-child(2){
+            color:blue;
+        }
+        div>p:nth-child(n){
+            background-color: beige;
+        }
+        div>p:nth-of-type(4){
+            color:forestgreen;
+        }
+        */
+        div>p:first-child{
+            color:red;
+        }
+        div>p:nth-last-child(2){
+            color:blue;
+        }
+        div>p:nth-child(n){
+            background-color: beige;
+        }
+        #p:hover{
+            background-color:blue;
+            cursor:pointer;
+        }
+        #p:active{
+            color:yellow;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p id="p">1 테스트 입니다.</p>
+    
+        <p id="p">2 테스트 입니다.</p>
+       
+        <p id="p">3 테스트 입니다.</p>
+       
+        <p id="p">4 테스트 입니다.</p>
+        
+        <p id="p">5 테스트 입니다.</p>
+    
+    </div>
+</body>
+</html>
