@@ -9,27 +9,28 @@
     <style>
         div {
             border: 1px solid black;
-        }
-        .container{
-            width: 800px;
-        }
-        .header{
+            width: 100px;
             height: 100px;
         }
-        .contents{
-            height: 400px;
+        .container{
+            overflow:hidden;
         }
-        .footer{
-            height: 80px;
+        .box {
+            float: left;
+            width: 100px;
+            height: 100px;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="header">안녕 나는 헤더!</div>
-        <div class="contents">내 이름은 컨텐츠! 내용이죠~</div>
-        <div class="footer">나..난... 발이 아니야.</div>
+        <div class="box">
+            box1
+        </div>
+        <div class="box">
+            box2
+        </div>
     </div>
 </body>
 
