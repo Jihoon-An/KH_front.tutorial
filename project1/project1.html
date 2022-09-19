@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,#header,#header>ul{
+            padding:0;
+            margin:0;
+        }
+        #header{
+            position: relative;
+            background-color: rgb(55, 53, 54);
+            width: 100%;
+            min-width: 700px;
+            height: 44px;
+        }
+        #header>ul{
+            width: 100%;
+            max-width: 1200px;
+            position: absolute;
+            left:50%;
+            top:50%;
+            transform: translate(-50%,-50%);
+        }
+        #header>ul>li{
+            position: relative;
+            list-style-type: none;
+            float: left;
+            width: 10%;
+        }
+        #header>ul>li>a>.menu{
+            position: relative;
+            color: whitesmoke;
+            left: 50%;
+            font-size:small;
+        }
+        #header>ul>li>a>.menu>img{
+            width: 30px;
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <ul>
+            <li id="li1"><a href=""><div class="menu"><img src="apple-logo.png" alt=""></div></a></li>
+            <li id="li2"><a href=""><div class="menu">스토어</div></a></li>
+            <li id="li3"><a href=""><div class="menu">Mac</div></a></li>
+            <li id="li4"><a href=""><div class="menu">iPad</div></a></li>
+            <li id="li5"><a href=""><div class="menu">iPhone</div></a></li>
+            <li id="li6"><a href=""><div class="menu">Watch</div></a></li>
+            <li id="li7"><a href=""><div class="menu">AirPods</div></a></li>
+            <li id="li8"><a href=""><div class="menu">TV</div></a></li>
+            <li id="li9"><a href=""><div class="menu"><img src="" alt=""></div></a></li>
+            <li id="li10"><a href=""><div class="menu"><img src="" alt=""></div></a></li>
+        </ul>
+    </div>
+</body>
+</html>
