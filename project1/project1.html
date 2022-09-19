@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body,#header,#header>ul{
+        *{box-sizing: border-box;}
+        body,#header,#header ul{
             padding:0;
             margin:0;
         }
@@ -17,47 +18,115 @@
             min-width: 700px;
             height: 44px;
         }
-        #header>ul{
-            width: 100%;
-            max-width: 1200px;
-            position: absolute;
-            left:50%;
-            top:50%;
-            transform: translate(-50%,-50%);
+        #header *{
+            float: left;
+            /*border: 1px solid white;*/
         }
-        #header>ul>li{
+        #header>#header-area{
+            position:relative;
+            width: 85%;
+            max-width: 800px;
+            height: 100%;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+        #header>#header-area>#logo-area{
+            position:relative;
+            width: 40px;
+            height: 100%;
+        }
+        
+        #header>#header-area>#logo-area>a>img{
+            position: absolute;
+            width:16px;
+            height: 18px;
+            left: 30%;
+            top: 45%;
+            transform: translate(-50%, -50%);
+        }
+        
+        #header>#header-area>#menu-area{
+            position: relative;
+            width: 83%;
+            height: 100%;
+        }
+
+        #header>#header-area>#menu-area>ul{
+            position:relative;
+            width:100%;
+            height:100%;
+            float: left;
+        }
+        #header>#header-area>#menu-area>ul>a{
+            height:100%;
+        }
+        #header>#header-area>#menu-area>ul>a>li{
             position: relative;
             list-style-type: none;
             float: left;
-            width: 10%;
+            height: 100%;
+            font-size: xx-small;
+            color: #D6D6D6;
+            text-align: center;
+            line-height:41px;
         }
-        #header>ul>li>a>.menu{
+        #header>#header-area>#menu-area>ul>a>#store-menu{position:absolute; left: 0%;}
+        #header>#header-area>#menu-area>ul>a>#mac-menu{position:absolute; left: 10.5%;}
+        #header>#header-area>#menu-area>ul>a>#ipad-menu{position:absolute; left: 18.5%;}
+        #header>#header-area>#menu-area>ul>a>#iphone-menu{position:absolute; left: 26.5%;}
+        #header>#header-area>#menu-area>ul>a>#watch-menu{position:absolute; left: 37%;}
+        #header>#header-area>#menu-area>ul>a>#airpods-menu{position:absolute; left: 47%;}
+        #header>#header-area>#menu-area>ul>a>#tv-menu{position:absolute; left: 58%;}
+        #header>#header-area>#menu-area>ul>a>#offer-menu{position:absolute; left: 65%;}
+        #header>#header-area>#menu-area>ul>a>#accessory-menu{position:absolute; left: 82%;}
+        #header>#header-area>#menu-area>ul>a>#service-menu{position:absolute; right: 0%;}
+        
+        #header>#header-area>#icon-area{
             position: relative;
-            color: whitesmoke;
-            left: 50%;
-            font-size:small;
+            width: 10%;
+            height: 100%;
         }
-        #header>ul>li>a>.menu>img{
-            width: 30px;
-            height: 30px;
+        
+        #header>#header-area>#icon-area>img{
+            position:absolute;
+            width: 32px;
+            height: 32px;
+            right: 0;
+            top: 12%;
+            transform: translate(0, 0);
+            z-index: 1;     
+            transition-duration: 1s;
+        }
+
+        #header>#header-area>#icon-area>img:hover{
+            cursor: pointer;
+            transform:rotate(90deg);
         }
 
     </style>
 </head>
 <body>
     <div id="header">
-        <ul>
-            <li id="li1"><a href=""><div class="menu"><img src="apple-logo.png" alt=""></div></a></li>
-            <li id="li2"><a href=""><div class="menu">스토어</div></a></li>
-            <li id="li3"><a href=""><div class="menu">Mac</div></a></li>
-            <li id="li4"><a href=""><div class="menu">iPad</div></a></li>
-            <li id="li5"><a href=""><div class="menu">iPhone</div></a></li>
-            <li id="li6"><a href=""><div class="menu">Watch</div></a></li>
-            <li id="li7"><a href=""><div class="menu">AirPods</div></a></li>
-            <li id="li8"><a href=""><div class="menu">TV</div></a></li>
-            <li id="li9"><a href=""><div class="menu"><img src="" alt=""></div></a></li>
-            <li id="li10"><a href=""><div class="menu"><img src="" alt=""></div></a></li>
-        </ul>
+        <div id="header-area">
+            <div id="logo-area"><a href=""><img src="Apple_logo_grey.svg" alt=""></a></div>
+            <div id="menu-area">
+                <ul>
+                    <a href=""><li class="menu" id="store-menu">스토어</li></a>
+                    <a href=""><li class="menu" id="mac-menu">Mac</li></a>
+                    <a href=""><li class="menu" id="ipad-menu">iPad</li></a>
+                    <a href=""><li class="menu" id="iphone-menu">iPhone</li></a>
+                    <a href=""><li class="menu" id="watch-menu">Watch</li></a>
+                    <a href=""><li class="menu" id="airpods-menu">AirPods</li></a>
+                    <a href=""><li class="menu" id="tv-menu">TV</li></a>
+                    <a href=""><li class="menu" id="offer-menu">Apple 독점제공</li></a>
+                    <a href=""><li class="menu" id="accessory-menu">액세서리</li></a>
+                    <a href=""><li class="menu" id="service-menu">고객지원</li></a>
+                </ul>
+            </div>
+            <div id="icon-area">
+                <img id="ham-grey" src="ham.png" alt="">
+            </div>
+        </div>
     </div>
 </body>
 </html>
