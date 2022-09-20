@@ -5,22 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         *{box-sizing: border-box;}
         body,#header,#header ul{
             padding:0;
             margin:0;
         }
+
         #header{
-            position: relative;
-            background-color: rgb(55, 53, 54);
+            position: fixed;
+            background-color: #181818b7;
             width: 100%;
             min-width: 700px;
             height: 44px;
+            z-index: 10;
         }
         #header *{
             float: left;
-            /*border: 1px solid white;*/
         }
         #header>#header-area{
             position:relative;
@@ -44,7 +47,14 @@
             top: 45%;
             transform: translate(-50%, -50%);
         }
-        
+        #header>#header-area>#logo-area>a>#logo-white{
+            filter: opacity(0);
+            transition-duration: 0.3s;
+        }
+        #header>#header-area>#logo-area>a>#logo-white:hover{
+            filter: opacity(1);
+        }
+
         #header>#header-area>#menu-area{
             position: relative;
             width: 83%;
@@ -69,6 +79,10 @@
             color: #D6D6D6;
             text-align: center;
             line-height:41px;
+            transition-duration: 0.3s;
+        }
+        #header>#header-area>#menu-area>ul>a>li:hover{
+            color:white;
         }
         #header>#header-area>#menu-area>ul>a>#store-menu{position:absolute; left: 0%;}
         #header>#header-area>#menu-area>ul>a>#mac-menu{position:absolute; left: 10.5%;}
@@ -82,33 +96,175 @@
         #header>#header-area>#menu-area>ul>a>#service-menu{position:absolute; right: 0%;}
         
         #header>#header-area>#icon-area{
-            position: relative;
-            width: 10%;
-            height: 100%;
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            right: 0;
+            top: 9%;
+            transform: translate(0%, 0%);
+            transition-duration: 0.5s;
         }
         
         #header>#header-area>#icon-area>img{
             position:absolute;
-            width: 32px;
-            height: 32px;
-            right: 0;
-            top: 12%;
-            transform: translate(0, 0);
-            z-index: 1;     
-            transition-duration: 1s;
+            width: 20px;
+            height: 20px;
+            right: 18%;
+            top: 22%;
+            transform: translate(0%, 0%);
+            transition-duration: 0.5s;
+        }
+        #header>#header-area>#icon-area>#ham-white{
+            filter: opacity(0);
+        }
+        #header>#header-area>#icon-area>#ham-white:hover{
+            filter: opacity(1);
         }
 
-        #header>#header-area>#icon-area>img:hover{
+        #header>#header-area>#icon-area:hover{
             cursor: pointer;
             transform:rotate(90deg);
         }
 
+        #bg-main{
+            position: fixed;
+            background-color: black;
+            width: 100%;
+            height: 1000px;
+            left: 50%;
+            top: 0px;
+            transform: translate(-50%, 0);
+        }
+        #bg-main>div{
+            position: absolute;
+            width: 700px;
+            text-align: center;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+        #bg-main>#bg-main-text1{
+            top: 100px;
+            color: white;
+            font-size: 2.7rem;
+            font-weight: bold;
+        }
+        #bg-main>#bg-main-text2{
+            top: 170px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight:550;
+        }
+        #bg-main>#bg-main-text3{
+            top: 210px;
+            color: rgb(134, 134, 139);
+            font-size: 0.9rem;
+            font-weight:bold;
+        }
+        #bg-main>#bg-main-text4{
+            top: 240px;
+        }
+        #bg-main>#bg-main-text4>a{
+            color: rgb(41, 151, 255);
+            font-size: 0.9rem;
+            font-weight:bold;
+        }
+        #bg-main>img{
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            left: 50%;
+            top: 300px;
+            transform: translate(-50%, 0);
+        }
+
+
+        #main{
+            position: relative;
+            background-color: rgba(255, 255, 255);
+            width: 100%;
+            height: 2000px;
+            top:700px;
+        }
+
+        #main>#content1{
+            position: relative;
+            background-color: rgb(251,251,253);
+            width: 100%;
+            height: 800px;
+            overflow: hidden;
+        }
+
+        #main>#content1>div{
+            position: absolute;
+            width: 700px;
+            left: 50%;
+            text-align: center;
+            transform: translate(-50%,0);
+        }
+
+        #main>#content1>#content1-text1{
+            top: 100px;
+            color: rgb(29,29,31);
+            font-size: 5rem;
+            font-weight:bold;
+        }
+        #main>#content1>#content1-text2{
+            top: 210px;
+            color: rgb(29,29,31);
+            font-size: 0.9rem;
+            font-weight:bold;
+        }
+        #main>#content1>#content1-text3{
+            top: 260px;
+            color: rgb(134, 134, 139);
+            font-size: 0.9rem;
+            font-weight:bold;
+        }
+
+        #main>#content1>img{
+            position: absolute;
+            left: 50%;
+            top:307px;
+            transform: translate(-50%, 0);
+        }
+
+
+        #footer{
+            position: relative;
+            top: 700px;
+            width: 100%;
+            height: 700px;
+            background-color: rgb(245,245,247);
+        }
+        
+        #footer>.container{
+            position: relative;
+            left: 50%;
+            width: 700px;
+            transform: translate(-50%,0);
+        }
+        #footer>.container>.footer-menu{
+            float: left;
+            width: 20%;
+            padding: 10px;
+        }
+        #footer>.container>.footer-menu>h3{
+            color:rgb(29,29,31);
+            font-size: small;
+        }
+        #footer>.container>.footer-menu>a{
+            color: rgb(110,110,115);
+            font-weight:500;
+            font-size: small;
+            text-decoration:none;
+        }
     </style>
 </head>
 <body>
+    <div id="bg-header"></div>
     <div id="header">
         <div id="header-area">
-            <div id="logo-area"><a href=""><img src="Apple_logo_grey.svg" alt=""></a></div>
+            <div id="logo-area"><a href=""><img id="logo-grey" src="Apple_logo_grey.svg" alt=""><a href=""><img id="logo-white" src="Apple_logo_white.svg" alt=""></a></div>
             <div id="menu-area">
                 <ul>
                     <a href=""><li class="menu" id="store-menu">스토어</li></a>
@@ -124,7 +280,91 @@
                 </ul>
             </div>
             <div id="icon-area">
-                <img id="ham-grey" src="ham.png" alt="">
+                <img id="ham-grey" src="ham.svg" alt="">
+                <img id="ham-white" src="ham_white.svg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="bg-main">
+        <div id="bg-main-text1">iPhone 12 Pro</div>
+        <div id="bg-main-text2">프로 그 이상.</div>
+        <div id="bg-main-text3">출시일은 추후에도 공개하지 않습니다.</div>
+        <div id="bg-main-text4"><a href="">☆더 보지 않기☆</a></div>
+        <img src="bg-iphone.png" alt="">
+    </div>
+
+    <div id="main">
+        <div id="content1">
+            <img src="iPone14.png" alt="">
+            <div id="content1-text1">iPone 14</div>
+            <div id="content1-text2">크게. 더 더덛더ㅓㅓㅓ크게.</div>
+            <div id="content1-text3">출시일은 아직도 공개가 안됐습니다.</div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <div class="footer-menu">
+                <h3>쇼핑 및 알아보기</h3>
+                <a href="">스토어</a><br>
+                <a href="">Mac</a><br>
+                <a href="">iPad</a><br>
+                <a href="">iPhone</a><br>
+                <a href="">Watch</a><br>
+                <a href="">AirPods</a><br>
+                <a href="">TV 및 홈</a><br>
+                <a href="">AirTag</a><br>
+                <a href="">액세서리</a><br>
+            </div>
+            <div class="footer-menu">
+                <h3>서비스</h3>
+                <a href="">Apple Music</a><br>
+                <a href="">Apple Arcade</a><br>
+                <a href="">iCloud</a><br>
+                <a href="">Apple Podcast</a><br>
+                <a href="">App Store</a><br>
+                <h3>계정</h3>
+                <a href="">Apple ID 관리</a><br>
+                <a href="">Apple Store 계정</a><br>
+                <a href="">iCloud.com</a><br>
+            </div>
+            <div class="footer-menu">
+                <h3>Apple Store</h3>
+                <a href="">매장 찾기</a><br>
+                <a href="">Genius Bar</a><br>
+                <a href="">Today at Apple</a><br>
+                <a href="">Apple 캠프</a><br>
+                <a href="">Apple Store앱</a><br>
+                <a href="">리퍼 및 특가 제품</a><br>
+                <a href="">금융 혜택</a><br>
+                <a href="">Apple Trade In</a><br>
+                <a href="">주문 상태</a><br>
+                <a href="">쇼핑 도움말</a><br>
+            </div>
+            <div class="footer-menu">
+                <h3>비지니스</h3>
+                <a href="">Apple과 비지니스</a><br>
+                <a href="">비지니스를 위한 제품 쇼핑하기</a><br>
+                <h3>교육</h3>
+                <a href="">Apple과 교육</a><br>
+                <a href="">초중고용 제품 쇼핑하기</a><br>
+                <a href="">대학 생활을 위한 제품 쇼핑하기</a><br>
+            </div>
+            <div class="footer-menu">
+                <h3>Apple의 가치관</h3>
+                <a href="">손쉬운 사용</a><br>
+                <a href="">환경</a><br>
+                <a href="">개인정보 보호</a><br>
+                <a href="">협력업체에 대한 책임</a><br>
+                <h3>Apple 정보</h3>
+                <a href="">Newsroom</a><br>
+                <a href="">Apple 리더십</a><br>
+                <a href="">채용 안내</a><br>
+                <a href="">윤리 및 규정 준수</a><br>
+                <a href="">이벤트</a><br>
+                <a href="">일자리 창출</a><br>
+                <a href="">Apple 연락처</a><br>
             </div>
         </div>
     </div>
