@@ -1,32 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jihoony</title>
     <link rel="shortcut icon" type="image/x-icon" href="duck.ico">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
     <style>
-        *{box-sizing: border-box;}
-        div{border:1px solid black}
+        /* * {
+            box-sizing: border-box;
+        }
+
+        .main * {
+            border: 1px solid blue
+        }
+
+        div {
+            border: 1px solid rgb(185, 252, 3)
+        } */
+
+        .categoty>.card>.list-groub>.list-groub-item>* {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .header>.links img {
+            margin-right: 5px;
+            width: 20px;
+            /* transition-duration: 0.1s; */
+        }
+
+        .header>.links img:hover {
+            width: 23px;
+        }
+
+        .links>label:hover {
+            cursor: pointer;
+        }
+
+        .links>#bm {
+            display: none;
+        }
+
+        .links>#bm:checked+label>img {
+            content: url("bookmark-check-fill.svg");
+        }
+
+        button>a {
+            /* transition-duration: 0.3s; */
+        }
+
+        button:hover,
+        button .dropdown-item:hover {
+            font-size: large;
+        }
     </style>
 </head>
+
 <body>
-    <div class="container-fluid">
-        <div class="row header">
-            <div class="col"></div>
+    <div id="top"></div>
+    <!-- logo -->
+    <div class="container-fluid d-none d-sm-block position-fixed logo" id="logo">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center pt-5">
+                <a href="#top"><img src="profile.png" alt="" style="border-radius: 100%; width: 90px;"></a>
+            </div>
         </div>
-        <div class="row navigator">
-            <div class="col"></div>
-        </div>
-        <div class="row contents">
-            <div class="col"></div>
-        </div>
-        <div class="row footer">
-            <div class="col"></div>
+        <div class="row">
+            <!-- category -->
+            <div class="col-2 d-none d-sm-block position-fixed categoty" style="top:230px;">
+                <div class="card position-absolute" style="right: 0;">
+                    <div class="card-header text-center">
+                        category
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-dark p-0">
+                            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                <!-- 일반 버튼
+                                <button type="button" class="btn btn-dark">Button</button> 
+                                -->
+
+                                <!-- 그룹 버튼
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Dropdown
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                                        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                                    </ul>
+                                </div> 
+                                -->
+                                <button type="button" class="btn btn-dark">
+                                    <div class="button-text">버튼</div>
+                                </button>
+
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <div>Dropdown</div>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#top">Dropdown link</a></li>
+                                        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+            <!-- indexbar -->
+            <div class="col-2 d-none d-md-block position-fixed indexbar" style="right: 0; top: 250px;">
+
+
+
+
+                <div class="btn-group-vertical position-absolute" role="group" aria-label="Vertical button group"
+                    style="left:0;">
+
+                    <button href="" type="button" class="btn btn-dark">
+                        <div>버튼</div>
+                    </button>
+                    <button type="button" class="btn btn-dark">
+                        <div>Button</div>
+                    </button>
+                    <button type="button" class="btn btn-dark">
+                        <div>Button</div>
+                    </button>
+                    <button type="button" class="btn btn-dark">
+                        <div>Button</div>
+                    </button>
+                    <button type="button" class="btn btn-dark">
+                        <div>Button</div>
+                    </button>
+                    <button type="button" class="btn btn-dark">
+                        <div>Button</div>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
+
+    </div>
+    <div class="container-fluid main">
+        <!-- header -->
+        <div class="row pt-4 pt-sm-0 header px-0">
+            <div class="col-12 d-sm-block d-none" style="padding-top: 150px;"></div>
+            <div class="col-3">
+                <!-- nav -->
+                <nav class="navbar d-block d-sm-none navbar-expand-lg bg-white">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Features</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Pricing</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Dropdown link
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- logo -->
+                <div class="d-sm-none" style="position: absolute; right: 10px; top: 30px;">
+                    <img src="profile.png" alt="" style="border-radius: 100%; width: 40px;">
+                </div>
+            </div>
+            <!-- name -->
+            <div class="col-6 title text-center fs-1" style="font-family: 'Nanum Brush Script', cursive;">
+                Jihoon An
+            </div>
+
+            <div class="col-3 d-none d-sm-block links text-center">
+                <a href="https://github.com/Jihoon-An"><img src="github.svg"></a>
+                <input type="checkbox" name="bm" id="bm">
+                <label id="lebel-bm" for="bm">
+                    <img src="bookmark.svg">
+                </label>
+                <a href="https://github.com/Jihoon-An"><img src="poo-solid.svg"></a>
+            </div>
+        </div>
+
+        <!-- contents -->
+        <div class="row mt-2 mt-sm-0">
+            <div class="col-2 d-none d-sm-block"></div>
+            <div class="col-12 col-sm-10 col-md-8 contents">
+                <div class="row content">
+                    <div class="col-12">
+                        <div class="img" style="text-align: center;">
+                            <img src="bg-iphone.png" alt="" style="width: 400px;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row content">
+                    <div class="col-12">
+                        <div class="img">
+                            <img src="iPone14.png" alt="" style="width: 100%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="row">
+            <div class="col-2 d-none d-sm-block"></div>
+            <div class="col-12 col-sm-10 col-md-8 footer" id="footer">
+                <div class="row foot">
+                    <div class="col-12">
+                        <div class="img">
+                            <img src="AirPods.png" alt="" style="width: 100%;">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div id="bottom"></div>
 </body>
+
 </html>
