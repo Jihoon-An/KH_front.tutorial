@@ -28,6 +28,10 @@
             border: 1px solid rgb(185, 252, 3)
         } */
 
+        .font-nanum-brush{
+            font-family: 'Nanum Brush Script', cursive;
+        }
+
         .categoty>.card>.list-groub>.list-groub-item>* {
             position: absolute;
             width: 100%;
@@ -37,7 +41,7 @@
         .header>.links img {
             margin-right: 5px;
             width: 20px;
-            /* transition-duration: 0.1s; */
+            transition-duration: 0.2s;
         }
 
         .header>.links img:hover {
@@ -56,13 +60,21 @@
             content: url("bookmark-check-fill.svg");
         }
 
-        button>a {
-            /* transition-duration: 0.3s; */
+        .logo-move-left {
+            position: absolute;
+            left: 1%;
         }
 
-        button:hover,
-        button .dropdown-item:hover {
+        .text-enlarge>* {
+            transition-duration: 0.3s;
+        }
+
+        .text-enlarge:hover {
             font-size: large;
+        }
+
+        .btn-group{
+             width: 100%;
         }
     </style>
 </head>
@@ -70,18 +82,19 @@
 <body>
     <div id="top"></div>
     <!-- logo -->
-    <div class="container-fluid d-none d-sm-block position-fixed logo" id="logo">
+    <div class="container-fluid d-none d-sm-block position-absolute logo" id="logo">
         <div class="row justify-content-center">
-            <div class="col-12 text-center pt-5">
-                <a href="#top"><img src="profile.png" alt="" style="border-radius: 100%; width: 90px;"></a>
+            <div class="col-12 pt-5 text-center" id="logo-main">
+                <!--logo-move-left-->
+                <a href="#"><img src="profile.png" alt="" style="border-radius: 100%; width: 90px;"></a>
             </div>
         </div>
         <div class="row">
             <!-- category -->
-            <div class="col-2 d-none d-sm-block position-fixed categoty" style="top:230px;">
+            <div class="col-2 d-none d-sm-block position-fixed categoty" style="top:100px;">
                 <div class="card position-absolute" style="right: 0;">
                     <div class="card-header text-center">
-                        category
+                        Front
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item bg-dark p-0">
@@ -102,54 +115,114 @@
                                     </ul>
                                 </div> 
                                 -->
-                                <button type="button" class="btn btn-dark">
-                                    <div class="button-text">버튼</div>
-                                </button>
+                                <button type="button" class="btn btn-dark text-enlarge" onclick="location.href='https://iced-scion-ac8.notion.site/JavaScript-e49322f5ecdf4502a53d05a29dd55258';">
+                                    <span>JavaScript</span>
+                                </button> 
 
+                                <button type="button" class="btn btn-dark text-enlarge" onclick="location.href='https://iced-scion-ac8.notion.site/HTML-773a9c2db3f244dba9d2066e242a0c8e';">
+                                    <span>HTML</span>
+                                </button> 
+
+                                <button type="button" class="btn btn-dark text-enlarge" onclick="location.href='https://iced-scion-ac8.notion.site/CSS-cf0642fbf8f34095b0f0cb7f84808e78';">
+                                    <span>CSS</span>
+                                </button> 
+
+                                <button type="button" class="btn btn-dark text-enlarge" onclick="location.href='https://iced-scion-ac8.notion.site/Bootstrap-3212e64d279243e2b636ef70f0b7fe82';">
+                                    <span>Bootstrap</span>
+                                </button> 
+                                
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+
+
+
+                <div class="card position-absolute" style="right: 0; top:200px;">
+                    <div class="card-header text-center">
+                        Back
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-dark p-0">
+                            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                <!-- 일반 버튼
+                                <button type="button" class="btn btn-dark text-enlarge">Button</button> 
+                                -->
+
+                                <!-- 그룹 버튼
                                 <div class="btn-group" role="group">
                                     <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"
                                         aria-expanded="false">
-                                        <div>Dropdown</div>
+                                        Dropdown
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#top">Dropdown link</a></li>
-                                        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                                        <li class="text-enlarge"><a class="dropdown-item" href="#">Dropdown link</a></li>
+                                        <li class="text-enlarge"><a class="dropdown-item" href="#">Dropdown link</a></li>
                                     </ul>
-                                </div>
+                                </div> 
+                                -->
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-dark dropdown-toggle text-enlarge" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <span>DB</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li class="text-enlarge"><a class="dropdown-item" href="https://iced-scion-ac8.notion.site/DB-DataBase-Basic-ea263410b1cd4fcfbd691959d8a8512e">DB 기초</a></li>
+                                        <li class="text-enlarge"><a class="dropdown-item" href="https://iced-scion-ac8.notion.site/Query-Function-8fa8f94a71aa46f982e534193cd5596a">Query</a></li>
+                                        <li class="text-enlarge"><a class="dropdown-item" href="https://iced-scion-ac8.notion.site/SQL-77919019fe034a629bbe33c147838316">SQL 종합문제</a></li>
+                                    </ul>
+                                </div> 
 
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-dark dropdown-toggle text-enlarge" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <span>Java</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li class="text-enlarge"><a class="dropdown-item" href="https://iced-scion-ac8.notion.site/slid-683c835973934b1ebee9c8cc7f864d62">slid</a></li>
+                                        <li class="text-enlarge"><a class="dropdown-item" href="https://iced-scion-ac8.notion.site/Exception-4bcd7262d85c4651b25d3565a02dafec">Exception</a></li>
+                                        <li class="text-enlarge"><a class="dropdown-item" href="https://iced-scion-ac8.notion.site/JDBC-7fd53e83e84840eb8b45b712e3eeff7c">JDBC</a></li>
+                                        <li class="text-enlarge"><a class="dropdown-item" href="https://iced-scion-ac8.notion.site/DBCP-dcfe7cfd8aa34075912089ee80947bfc">DBCP</a></li>
+                                        <li class="text-enlarge"><a class="dropdown-item" href="https://iced-scion-ac8.notion.site/a57325ba2d124953addecba3dda8921f">암호화</a></li>
+                                    </ul>
+                                </div> 
+                                
                             </div>
                         </li>
-
                     </ul>
+
                 </div>
+
+
+
+
 
             </div>
             <!-- indexbar -->
             <div class="col-2 d-none d-md-block position-fixed indexbar" style="right: 0; top: 250px;">
 
-
-
-
                 <div class="btn-group-vertical position-absolute" role="group" aria-label="Vertical button group"
                     style="left:0;">
 
-                    <button href="" type="button" class="btn btn-dark">
-                        <div>버튼</div>
+                    <button type="button" class="btn btn-dark text-enlarge" onclick="location.href='#top';">
+                        <div>Top</div>
                     </button>
-                    <button type="button" class="btn btn-dark">
-                        <div>Button</div>
+                    <button type="button" class="btn btn-dark text-enlarge" onclick="location.href='#bottom';">
+                        <div>bottom</div>
                     </button>
-                    <button type="button" class="btn btn-dark">
-                        <div>Button</div>
+                    <button type="button" class="btn btn-dark text-enlarge"  onclick="location.href='#content1';">
+                        <div>content1</div>
                     </button>
-                    <button type="button" class="btn btn-dark">
-                        <div>Button</div>
+                    <button type="button" class="btn btn-dark text-enlarge"  onclick="location.href='#content2';">
+                        <div>content2</div>
                     </button>
-                    <button type="button" class="btn btn-dark">
-                        <div>Button</div>
+                    <button type="button" class="btn btn-dark text-enlarge"  onclick="location.href='#content3';">
+                        <div>content3</div>
                     </button>
-                    <button type="button" class="btn btn-dark">
-                        <div>Button</div>
+                    <button type="button" class="btn btn-dark text-enlarge"  onclick="location.href='#footer';">
+                        <div>foot</div>
                     </button>
                 </div>
             </div>
@@ -176,20 +249,20 @@
                                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Features</a>
+                                    <a class="nav-link" href="#">Front</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Pricing</a>
+                                    <a class="nav-link" href="#">DB</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
-                                        Dropdown link
+                                        Java
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><a class="dropdown-item" href="#">아</a></li>
+                                        <li><a class="dropdown-item" href="#">직</a></li>
+                                        <li><a class="dropdown-item" href="#">...</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -202,17 +275,17 @@
                 </div>
             </div>
             <!-- name -->
-            <div class="col-6 title text-center fs-1" style="font-family: 'Nanum Brush Script', cursive;">
+            <div class="col-6 title text-center fs-1 font-nanum-brush">
                 Jihoon An
             </div>
-
+            <!-- links -->
             <div class="col-3 d-none d-sm-block links text-center">
                 <a href="https://github.com/Jihoon-An"><img src="github.svg"></a>
                 <input type="checkbox" name="bm" id="bm">
                 <label id="lebel-bm" for="bm">
                     <img src="bookmark.svg">
                 </label>
-                <a href="https://github.com/Jihoon-An"><img src="poo-solid.svg"></a>
+                <a href="https://www.google.com/search?q=%EB%B0%94%EB%B3%B4&oq=%EB%B0%94%EB%B3%B4&aqs=chrome..69i57.2543j0j1&sourceid=chrome&ie=UTF-8"><img src="poo-solid.svg"></a>
             </div>
         </div>
 
@@ -220,7 +293,7 @@
         <div class="row mt-2 mt-sm-0">
             <div class="col-2 d-none d-sm-block"></div>
             <div class="col-12 col-sm-10 col-md-8 contents">
-                <div class="row content">
+                <div class="row content" id="content1">
                     <div class="col-12">
                         <div class="img" style="text-align: center;">
                             <img src="bg-iphone.png" alt="" style="width: 400px;">
@@ -228,10 +301,18 @@
                     </div>
                 </div>
 
-                <div class="row content">
+                <div class="row content" id="content2">
                     <div class="col-12">
                         <div class="img">
                             <img src="iPone14.png" alt="" style="width: 100%;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row content" id="content3">
+                    <div class="col-12">
+                        <div class="img">
+                            <img src="AirPods.png" alt="" style="width: 100%;">
                         </div>
                     </div>
                 </div>
@@ -243,11 +324,9 @@
             <div class="col-2 d-none d-sm-block"></div>
             <div class="col-12 col-sm-10 col-md-8 footer" id="footer">
                 <div class="row foot">
-                    <div class="col-12">
-                        <div class="img">
-                            <img src="AirPods.png" alt="" style="width: 100%;">
-                        </div>
-                    </div>
+                    <span class="text-center p-5">
+                        Capyright: free
+                    </span>
                 </div>
 
             </div>
