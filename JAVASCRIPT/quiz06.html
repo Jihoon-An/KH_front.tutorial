@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            position: absolute;
+            left: 50%;
+            width: 500px;
+            height: 300px;
+            transform: translate(-50%);
+            font-size: 5rem;
+            font-weight:900;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">나는 버튼!</button>
+    <script>
+        let btn = document.getElementById("btn");
+        btn.onmouseover = function(){
+            btn.innerHTML = "마우스 들어왔다~";
+        };
+        btn.onmouseout = function(){
+            btn.innerHTML = "마우스 나갔다...";
+        };
+    </script>
+</body>
+</html>

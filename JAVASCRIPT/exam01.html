@@ -5,12 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <style>
+        div{border: 1px solid black;}
+        #div1{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
-    
+    <input type="text" id="text1"><br>
+    <input type="password" id="text2">
+
+    <div id="div1"></div>
+
     <script>
-        
+        let text1 = document.getElementById("text1");
+        text1.value = "def";
+        let text2 = document.getElementById("text2");
+        text2.value = "abc";
+
+        let div1 = document.getElementById("div1");
+        div1.innerHTML = "Hello JS";
+
+        console.log(text1.value);
     </script>
 
 </body>
