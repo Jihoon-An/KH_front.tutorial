@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Fruits</legend>
+        <span id="result">Apple,Banana,Grape,Mango</span>
+    </fieldset>
+
+    <input id="iAdd" type="text" placeholder="추가할 단어">
+    <button onclick="add();">추가하기</button><br>
+    <input id="iDel" type="text" placeholder="삭제할 단어">
+    <button onclick="del();">삭제하기</button>
+
+    <script>
+        let result = document.querySelector("#result");
+        function add() {
+            let resultArr = result.innerHTML.split(",");
+            let iAdd = document.querySelector("#iAdd");
+            let index = resultArr.indexOf(iAdd.value);
+            if(!iAdd.value){
+                alert("값이 있어야 연산을 하지 이놈아!");
+            }
+            else if(index == -1){
+                result.innerHTML = [result.innerHTML, iAdd.value];
+            }
+            else{
+                alert("이미 있는 값이다 이놈아!");
+            }
+            iAdd.value = "";
+        }
+        function del() {
+            let iDel = document.getElementById("iDel");
+            let resultArr = result.innerHTML.split(",");
+            let index = resultArr.indexOf(iDel.value);
+            if(!iDel.value){
+                alert("값이 있어야 연산을 하지 이놈아!");
+            }
+            else if (index != -1) {
+                resultArr.splice(index, 1);
+                result.innerHTML = resultArr.join(",");
+            }
+            else{
+                alert("그런건 없다~!");
+            }
+            iDel.value = "";
+        }
+    </script>
+</body>
+
+</html>

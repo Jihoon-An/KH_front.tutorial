@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let person = {
+            "name" : "jack",
+            "contact" : "01012344321",
+            "hello":function (){
+                console.log("Hello My Name is "+ this.name);
+            },
+            "hobby":["java","Reading","Piano"],
+            "score":{
+                "kor":80,
+                "eng":100,
+                "math":100
+            },
+            "favoriteFruits":function(){
+                return ["Apple", "Strawberry", "Blueberry"];
+            }
+        };
+
+        console.log(person.name);
+        console.log(person.contact);
+        person.hello();
+        console.log(person.hobby[2]);
+        console.log(person.score.eng);
+        console.log(person.favoriteFruits()[1]);
+    </script>
+</body>
+</html>

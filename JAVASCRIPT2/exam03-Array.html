@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // slice : 배열 안에서 요소들을 추출하여 반환하는 함수.
+        //          원본은 수정하지 않으며 copy하여 return한다.
+        let lang=["C", "Java", "Perl", "Ruby", "Python"];
+
+        let sub = lang.slice(2,3);
+        console.log(sub);
+        console.log(lang);
+
+
+        // splice : parameter조건에 따라 삭제, 삽입이 가능한 함수.
+
+        lang.splice(1, 2); // 1번째 항목부터 2개만큼 삭제함.
+        console.log(lang);
+        lang.splice(1, 1, "Assemble"); // 1번째 항목부터 1개만큼 삭제하고 "Assemble"이 그 공간을 대체함.
+        console.log(lang);
+
+
+
+    </script>
+</body>
+</html>
