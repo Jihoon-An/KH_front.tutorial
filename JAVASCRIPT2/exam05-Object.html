@@ -23,6 +23,20 @@
             },
             "favoriteFruits":function(){
                 return ["Apple", "Strawberry", "Blueberry"];
+            },
+            "abilities":function(){
+                return{
+                    "java":function(){return 100;},
+                    "css":function(){return 90;},
+                    "js":function(){return 70;}
+                };
+            },
+            "helloTo":function(freind){
+                console.log("Hello "+ freind.name);
+            },
+            "Dron":function(){
+                this.brand = "Samsung";
+                this.price = 100000;
             }
         };
 
@@ -32,6 +46,11 @@
         console.log(person.hobby[2]);
         console.log(person.score.eng);
         console.log(person.favoriteFruits()[1]);
+        console.log(person.abilities().java());
+        person.helloTo({name:"Susan"});
+        let dron = new person.Dron();
+        console.log(dron.brand);
+        console.log(dron.price);
     </script>
 </body>
 </html>
