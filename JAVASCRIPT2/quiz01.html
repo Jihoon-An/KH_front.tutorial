@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Fruits</legend>
+        <span id="result">Apple,Banana,Grape,Mango</span>
+    </fieldset>
+
+    <input id="inputText" type="text" placeholder="추가할 값 입력"><br>
+    <button onclick="addFront();">앞에 추가</button><button onclick="delFront();">앞에 삭제</button><br>
+    <button onclick="addBack();">뒤에 추가</button><button onclick="delBack();">뒤에 삭제</button>
+    <script>
+        let result = document.getElementById("result");
+        let inputText = document.getElementById("inputText");
+        let resultArray = [];
+
+        function addFront(){
+            resultArray = result.outerText.split(",");
+            resultArray.unshift(inputText.value);
+            result.innerHTML = resultArray.join(",");
+            inputText.value = "";
+        }
+        function delFront(){
+            resultArray = result.outerText.split(",");
+            resultArray.shift();
+            result.innerHTML = resultArray.join(",");
+            inputText.value = "";
+        }
+        function addBack(){
+            resultArray = result.outerText.split(",");
+            resultArray.push(inputText.value);
+            result.innerHTML = resultArray.join(",");
+            inputText.value = "";
+        }
+        function delBack(){
+            resultArray = result.outerText.split(",");
+            resultArray.pop(inputText.value);
+            result.innerHTML = resultArray.join(",");
+            inputText.value = "";
+        }
+    </script>
+</body>
+</html>

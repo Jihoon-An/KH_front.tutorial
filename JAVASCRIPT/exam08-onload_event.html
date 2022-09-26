@@ -34,8 +34,10 @@
         }
     </style>
     <script>
-        // onload : page로딩이 완료되었을 때
-        // script영역을 head에 만들 수 있게 함.
+        // onload : page로딩이 완료되었을 때.
+        // 실행 순서를 조정하여 script영역을 head에 만들 수 있게 함.
+
+        // onunload : page를 나갔을(종료 했을) 때.
         window.onload = function () {
 
             let pw1 = document.getElementById("ip-pw1");
