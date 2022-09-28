@@ -8,18 +8,20 @@
     <title>Document</title>
 
     <style>
-        *{
+        table, table *{
             border:1px solid black;
+            margin: auto;
+            text-align: center;
         }
     </style>
 
 </head>
     <table id="mainTable">
         <tr>
-            <td>날짜</td>
-            <td>시간</td>
-            <td>기온</td>
-            <td>날씨</td>
+            <td style="width:50px; background-color:brown;">날짜</td>
+            <td style="width:50px; background-color:brown;">시간</td>
+            <td style="width:50px; background-color:brown;">기온</td>
+            <td style="width:100px; background-color:brown;">날씨</td>
         </tr>
     </table>
 <body>
@@ -35,14 +37,22 @@
         if (xmlhttp.status == 200) {
             content = xmlhttp.responseText;
         }
-        // data-wetr-cd : 날씨 아이콘 번호.
     
         let regex = /<th id="_idHourly-\d+?" class="data top  _cnItemTime" data-tmpr="(.+?)" data-wetr-cd=".+?" data-wetr-txt="(.+?)" data-ymdt=".+?">.*?<span class="(.+?)">(.+?)<\/span>/gs;
         let result;
+        let table = document.getElementById("mainTable");
         
         while((result = regex.exec(content)) != null){
-            let table = document.getElementById("mainTable");
-            table.innerHTML = table.innerHTML + "<tr><td>"+result[3]+"</td><td>"+result[4]+"</td><td>"+result[1]+"</td><td>"+result[2]+"</td></tr>"
+            if(result[3] == "time"){
+                result[3] = "오늘";
+            }
+            else if(result[3] == "time tomorrow"){
+                result[3] = "내일";
+            }
+            else if(result[3] == "time after_tomorrow"){
+                result[3] = "모레";
+            }
+            table.innerHTML = table.innerHTML + "<tr><td>"+result[3]+"</td><td>"+result[4]+"</td><td>"+result[1]+"℃</td><td>"+result[2]+"</td></tr>"
         }
     </script>
 </body>
