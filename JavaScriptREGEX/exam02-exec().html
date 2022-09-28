@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = `
+            <style>
+                * {
+                    box-sizing: border-box;
+                    /*border: 1px solid rgb(104, 103, 103);*/
+                    color: rgb(32, 32, 32);
+                }
+        
+                div {
+                    background-color: rgb(255, 255, 255);
+                }
+                body{
+                    background-color: rgb(51, 51, 51);
+                }
+        
+                .board {
+                    display: block;
+                    width: 500px;
+                    overflow: hidden;
+                    margin: auto;
+                }
+        
+                header>div {
+                    display: block;
+                    float: left;
+                    height: 70px;
+                }
+        
+                header>#logo>img{
+                    width: 100%;
+                    height: 100%;
+                }
+                header>#title>img{
+                    width: 100%;
+                    height: 100%;
+                }
+        
+                #logo {
+                    width: 15%;
+                }
+        
+                #title {
+                    width: 65%;
+                }
+        
+                #reserved {
+                    width: 20%;
+                }
+        
+                .contents {
+                    height: 400px;
+                }
+        
+                .contents>div {
+                    display: block;
+                    float: left;
+                    height: 100%;
+                }
+        
+                #main {
+                    width: 70%;
+                    padding: 7px;
+                }
+                
+                #main>.mainImage{
+                    float: left;
+                    width: 50%;
+                    height: 100%;
+                }
+                #main>.mainImage>a>div{
+                    float: left;
+                    width: 100%;
+                    height: 50%;
+                }
+        
+                #main>.mainImage>a>div>.img{
+                    width: 90%;
+                    height: 70%;
+                    margin: auto;
+                }
+        
+                #main>.mainImage>a>div>.img img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                }
+        
+                #main>.mainImage>a>div>.caption{
+                    width: 100%;
+                    height: 10%;
+                    text-align: center;
+                    font-size: xx-small;
+                }
+        
+                #mypage {
+                    width: 30%;
+                }
+        
+                .navigator {
+                    display: block;
+                    width: 100%;
+                    height: 40px;
+                    overflow: hidden;
+                }
+        
+                .mypage>div {
+                    overflow: hidden;
+                }
+        
+                #loginbox {
+                    height: 35%;
+                }
+        
+                #emailbox {
+                    height: 65%;
+                }
+        
+                #emailbox>.mailBox {
+                    font-style: oblique;
+                    border: 1px solid rgb(223, 223, 223);
+                }
+        
+                #emailbox>div {
+                    text-align: center;
+                }
+        
+                #emailbox>.mailList {
+                    height: 90%;
+                    overflow-y: auto;
+                }
+        
+                #emailbox>.mailList>div {
+                    width: 100%;
+                    height: 10%;
+                    margin-top: 1px;
+                    text-align: center;
+                    line-height: 19px;
+                    font-size: 5px;
+                    overflow: hidden;
+                }
+        
+                .footer {
+                    border: 1px solid rgb(51, 51, 51);
+                    overflow: hidden;
+                }
+        
+                ul {
+                    overflow: hidden;
+                    padding: 0px;
+                    margin: 0px;
+                    height: 40px;
+                }
+        
+                ul>li {
+                    float: left;
+                    list-style-type: none;
+                    margin: 0px;
+                    width: 25%;
+                    height: 100%;
+                    text-align: center;
+                    border: 1px solid rgb(223, 223, 223);
+                    line-height: 35px;
+                    text-transform:initial;
+                }
+        
+                ul>:hover {
+                    cursor: pointer;
+                    background-color: rgb(65, 65, 65);
+                    color: white;
+                }
+        
+                .loginHeader {
+                    text-align: center;
+                    height: 15%;
+                    border: 1px solid rgb(223, 223, 223);
+                    font-size: small;
+                }
+        
+                .loginMain {
+                    height: 40%;
+                }
+        
+                .loginMain>div {
+                    float: left;
+                }
+        
+                .loginMain>.loginInput {
+                    width: 70%;
+                }
+        
+                .loginMain>.loginInput input {
+                    width: 100%;
+                    font-size: xx-small;
+                }
+        
+                .loginMain>.loginButton {
+                    width: 30%;
+                    height: 100%;
+                }
+        
+                .loginMain>.loginButton>button {
+                    width: 40px;
+                    height: 40px;
+                    text-align: center;
+                    margin-top: 5px;
+                    padding: 0;
+                    color: black;
+                }
+        
+                .loginMain>.loginButton>button:hover {
+                    cursor: pointer;
+                }
+        
+                .loginFooter {
+                    height: 15%;
+                    overflow: hidden;
+                }
+        
+                .loginFooter>* {
+                    float: left;
+                    height: 100%;
+                }
+        
+                .loginFooter>a {
+                    width: 50%;
+                    height: 100%;
+                    font-size: 3px;
+                    text-align: center;
+                    border: 0px;
+                }
+                .loginFooter>a:hover {
+                    cursor: pointer;
+                    color: blue;
+                }
+            </style>
+        </head>
+        
+        <body>
+            <div class="board">
+        
+                <header>
+                    <div id="logo"><img src="logo.png"></div>
+                    <div id="title"><img src="title.png"></div>
+                    <div id="reserved"></div>
+                </header>
+        
+                <div class="navigator">
+                    <ul>
+                        <li>Home</li>
+                        <li>About Me</li>
+                        <li>Portfolio</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+        
+                <div class="contents">
+                    <div id="main">
+                        <div class="mainImage">
+        
+                            <a href="https://www.mk.co.kr/news/world/view/2022/09/815595/">
+                            <div class="mainImage1">
+                                <div class="img"><img src="img1.png"></div>
+                                <div class="caption">"우크라 대통령 고향에 몹쓸 짓했다"…반격에 보복 나선 러시아</div>
+                            </div>
+                        </a>
+                        <a href="https://imnews.imbc.com/replay/2022/nwtoday/article/6408197_35752.html">
+                            <div class="mainImage2">
+                                <div class="img"><img src="img2.png"></div>
+                                <div class="caption">러시아, 젤렌스키 고향 폭격‥댐 터져 '물바다'</div>
+                            </div>
+                        </a>
+        
+                        </div>
+                        <div class="mainImage">
+                            <a href="http://news.tvchosun.com/site/data/html_dir/2022/09/15/2022091590110.html">
+                            <div class="mainImage3">
+                                <div class="img"><img src="img3.png"></div>
+                                <div class="caption">英 "러시아 자체 무기 재고부족에 북한서 무기 조달"</div>
+                            </div>
+                            </a>
+                            <a href="https://www.hankookilbo.com/News/Read/A2022091607190003143?did=NA">
+                            <div class="mainImage4">
+                                <div class="img"><img src="img4.png"></div>
+                                <div class="caption">미국, 러시아 무더기 추가 제재…푸틴-시진핑 만난 날</div>
+                            </div>
+                        </a>
+                        </div>
+                    </div>
+                    <div class="mypage" id="mypage">
+                        <div id="loginbox">
+                            <div class="loginHeader">Login Box</div>
+                            <div class="loginMain">
+                                <div class="loginInput">
+                                    <div class="id"><input type="text" placeholder="ID입력"></div>
+                                    <div class="pw"><input type="password" placeholder="PW입력"></div>
+                                </div>
+                                <div class="loginButton"><button>Login</button></div>
+                            </div>
+                            <div class="loginFooter">
+                                <a href="">회원가입</a>
+                                <a href="">ID,PW찾기</a>
+                            </div>
+                            <div></div>
+                        </div>
+                        <div id="emailbox">
+                            <div class="mailBox">Mail Box</div>
+                            <div class="mailList">
+                                <div>1번째 메일입니다.</div>
+                                <div>2번째 메일입니다.</div>
+                                <div>3번째 메일입니다.</div>
+                                <div>4번째 메일입니다.</div>
+                                <div>5번째 메일입니다.</div>
+                                <div>6번째 메일입니다.</div>
+                                <div>7번째 메일입니다.</div>
+                                <div>8번째 메일입니다.</div>
+                                <div>9번째 메일입니다.</div>
+                                <div>10번째 메일입니다.</div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+        
+                <div class="footer"></div>
+            </div>`;
+
+        let regex = /class ?= ?"(.+?)"/g;
+        let result;
+        while((result = regex.exec(str)) != null){
+            //console.log(result[1]);
+            console.log(RegExp.$1);
+        }
+        
+    </script>
+</body>
+</html>

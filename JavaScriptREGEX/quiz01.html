@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="phone" placeholder="번호를 입력하세요.">
+    <button id="check">검증</button>
+    <fieldset>
+        <legend>검증결과</legend>
+        <div id="result"></div>
+    </fieldset>
+    <script>
+        document.getElementById("check").addEventListener("click",function (){/^010-?\d{4}-?\d{4}$/.test(document.getElementById("phone").value)? document.getElementById("result").innerHTML="성공":document.getElementById("result").innerHTML="실패";})
+    </script>
+</body>
+</html>

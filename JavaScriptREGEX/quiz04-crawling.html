@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            border:1px solid black;
+        }
+    </style>
+
+</head>
+    <table id="mainTable">
+        <tr>
+            <td>날짜</td>
+            <td>시간</td>
+            <td>기온</td>
+            <td>날씨</td>
+        </tr>
+    </table>
+<body>
+
+
+    <script>
+        //문서 불러오기.
+        let content = null;
+        let xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "web.txt", false);
+        xmlhttp.send();
+        //파일 로드 성공 시 파일에서 읽은 텍스트를 content에 담음.
+        if (xmlhttp.status == 200) {
+            content = xmlhttp.responseText;
+        }
+        // data-wetr-cd : 날씨 아이콘 번호.
+    
+        let regex = /<th id="_idHourly-\d+?" class="data top  _cnItemTime" data-tmpr="(.+?)" data-wetr-cd=".+?" data-wetr-txt="(.+?)" data-ymdt=".+?">.*?<span class="(.+?)">(.+?)<\/span>/gs;
+        let result;
+        
+        while((result = regex.exec(content)) != null){
+            let table = document.getElementById("mainTable");
+            table.innerHTML = table.innerHTML + "<tr><td>"+result[3]+"</td><td>"+result[4]+"</td><td>"+result[1]+"</td><td>"+result[2]+"</td></tr>"
+        }
+    </script>
+</body>
+
+</html>
