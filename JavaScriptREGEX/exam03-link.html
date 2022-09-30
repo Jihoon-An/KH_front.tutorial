@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="exam01.html">예제1번으로</a>
+
+    <button id="page">예제 2번으로</button>
+    <script>
+        document.getElementById("page").addEventListener("click", function(){
+            location.href = "exam02.html";
+        });
+    </script>
+
+    <!-- form 태그와 submit -->
+    <form action="quiz01.html">
+        <input type="text">
+        <input type="submit">
+    </form>
+</body>
+</html>

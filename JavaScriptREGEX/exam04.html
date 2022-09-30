@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+    <form action="dest.html" id="frm">
+        <input id="phone" type="text" placeholder="핸드폰 번호 입력."><br>
+        <button>제출</button>
+    </form>
+
+    <script>
+        document.getElementById("frm").onsubmit = function(){
+            if(document.getElementById("phone").value == ""){
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Do you want to continue',
+                    icon: 'error',
+                    confirmButtonText: 'Cool'
+                  })
+                return false;
+            }
+
+            let regex = /^01\d[.-\s]?\d{4}[.-\s]?\d{4}$/g;
+            if (!(regex.test(str))) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '형식x',
+                    text: 'Something went wrong!',
+                    footer: '<a href="">Why do I have this issue?</a>'
+                })
+                document.getElementById("phone").value = "";
+                return false;
+            }
+        };
+    </script>
+</body>
+
+</html>

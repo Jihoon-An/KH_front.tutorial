@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .row,
+        .col {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" style="width:600px">
+        <div class="row">
+            <div class="col text-center">
+                회원 가입 정보 입력
+            </div>
+        </div>
+        <form id="frm" action="">
+            <div class="row">
+                <div class="col-3 px-0">아이디</div>
+                <div class="col-9 px-0">
+                    <input type="text" id="idip" style="width:30%;height:100%;">
+                    <input type="button" id="idbtn" value="중복확인">
+                </div>
+            </div>
+
+            <script>
+                let idresult = false;
+                let idip = document.getElementById("idip");
+                let idbtn = document.getElementById("idbtn");
+                let idregex = /^\w{8,14}$/;
+                idbtn.addEventListener("click", function () {
+                    if (idregex.test(idip.value)) {
+                        Swal.fire('사용 가능한 ID입니다.')
+                        idresult = true;
+                        idip.setAttribute("readonly", true);
+                    }
+                    else {
+                        idresult = false;
+                        Swal.fire({
+                            icon: 'error',
+                            title: '옳바르지 않은 값 입니다.',
+                            text: '아이디를 확인하세요!',
+                            footer: '<a href="">Why do I have this issue?</a>'
+                        })
+                    }
+                });
+            </script>
+
+            <div class="row">
+                <div class="col-3 px-0">패스워드</div>
+                <div class="col-9 px-0">
+                    <input type="text" id="pw1ip" style="width:30%;height:100%;">
+                    <span id="pw1check"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 px-0">패스워드 확인</div>
+                <div class="col-9 px-0">
+                    <input type="text" id="pw2ip" style="width:30%;height:100%;">
+                    <span id="pw2check"></span>
+                </div>
+            </div>
+
+            <script>
+                let pwresult = false;
+                let pw1ip = document.getElementById("pw1ip");
+                let pw2ip = document.getElementById("pw2ip");
+                let pw1check = document.getElementById("pw1check");
+                let pw2check = document.getElementById("pw2check");
+                let pwregex = /^[a-zA-Z\d!@#$%]{10,20}$/;
+                pw1ip.addEventListener("keyup", function () {
+                    pw2check.innerHTML = "";
+                    if (!pw1ip.value) {
+                        pw1check.innerHTML = "비밀번호를 입력하세요.";
+                        pw1check.style = "color: red;";
+                        pwresult = false;
+                    }
+                    else if (!pwregex.test(pw1ip.value)) {
+                        pw1check.innerHTML = "영어,숫자,!@#$%를 조합하여 8-14글자";
+                        pwresult = false;
+                    }
+                    else if (pw2ip.value && (pw1ip.value == pw2ip.value)) {
+                        pw1check.innerHTML = "비밀번호가 일치합니다!";
+                        pw1check.style = "color: blue;";
+                        pw2check.innerHTML = "비밀번호가 일치합니다!";
+                        pw2check.style = "color: blue;";
+                        pwresult = true;
+                    }
+                    else if (pw2ip.value && (pw1ip.value != pw2ip.value)) {
+                        pw1check.innerHTML = "비밀번호가 일치하지 않습니다!";
+                        pw1check.style = "color: red;";
+                        pw2check.innerHTML = "비밀번호가 일치하지 않습니다.";
+                        pw2check.style = "color: red;";
+                        pwresult = false;
+                    }
+                    else {
+                        pw1check.innerHTML = "";
+                    }
+                });
+                pw2ip.addEventListener("keyup", function () {
+                    pw1check.innerHTML = "";
+                    if (!pw2ip.value || !pw1ip.value) {
+                        pw2check.innerHTML = "비밀번호를 입력하세요.";
+                        pw2check.style = "color: red;";
+                        pwresult = false;
+                    }
+                    else if (pw1ip.value == pw2ip.value) {
+                        pw1check.innerHTML = "비밀번호가 일치합니다!";
+                        pw1check.style = "color: blue;";
+                        pw2check.innerHTML = "비밀번호가 일치합니다!";
+                        pw2check.style = "color: blue;";
+                        pwresult = true;
+                    }
+                    else {
+                        pw1check.innerHTML = "비밀번호가 일치하지 않습니다!";
+                        pw1check.style = "color: red;";
+                        pw2check.innerHTML = "비밀번호가 일치하지 않습니다.";
+                        pw2check.style = "color: red;";
+                        pwresult = false;
+                    }
+                });
+            </script>
+
+            <div class="row">
+                <div class="col-3 px-0">이름</div>
+                <div class="col-9 px-0">
+                    <input type="text" id="nameip" style="width:30%;height:100%;">
+                    <span id="namecheck"></span>
+                </div>
+            </div>
+
+            <script>
+                let nameresult = false;
+                let nameip = document.getElementById("nameip");
+                let namecheck = document.getElementById("namecheck");
+
+                let nameregex = /^.{1,5}$/;
+                nameip.addEventListener("keyup", function () {
+                    if (!regex.test(nameip.value)) {
+                        namecheck.innerHTML = "5글자 이하";
+                        namecheck.style = "color: red;";
+                        nameresult = false;
+                    }
+                    else {
+                        namecheck.innerHTML = "";
+                        nameresult = true;
+                    }
+                })
+            </script>
+
+            <div class="row">
+                <div class="col-3 px-0">전화번호</div>
+                <div class="col-9 px-0">
+                    <form action="" id="phonefrm">
+                        <input type="text" id="phoneip" style="width:30%;height:100%;">
+                        <span id="phonecheck"></span>
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                let phoneresult = true;
+                let phoneip = document.getElementById("phoneip");
+                let phonecheck = document.getElementById("phonecheck");
+
+                let phoneregex = /^010[- ]?\d{4}[- ]?\d{4}$/;
+                phoneip.addEventListener("keyup", function () {
+                    if (!phoneregex.test(phoneip.value)) {
+                        phonecheck.innerHTML = "옳바르지 않은 전화번호입니다.";
+                        phonecheck.style = "color: red;";
+                        phoneresult = false;
+                    }
+                    else {
+                        phonecheck.innerHTML = "";
+                        phoneresult = true;
+                    }
+                })
+            </script>
+
+            <div class="row">
+                <div class="col-3 px-0">이메일</div>
+                <div class="col-9 px-0">
+                    <input type="text" id="emailip" style="width:30%;height:100%;">
+                    <span id="emailcheck"></span>
+                </div>
+            </div>
+
+            <script>
+                let emailresult = true;
+                let emailip = document.getElementById("emailip");
+                let emailcheck = document.getElementById("emailcheck");
+
+                let emailregex = /^[a-zA-Z\d]+?@[a-z]+?.[a-z]+?$/;
+                emailip.addEventListener("keyup", function () {
+                    if (!emailregex.test(emailip.value)) {
+                        emailcheck.innerHTML = "옳바르지 않은 email입니다.";
+                        emailcheck.style = "color: red;";
+                        emailresult = false;
+                    }
+                    else {
+                        emailcheck.innerHTML = "";
+                        emailresult = true;
+                    }
+                })
+            </script>
+
+            <div class="row">
+                <div class="col-3 px-0">우편번호</div>
+                <div class="col-9 px-0">
+                    <input type="text" id="zipCodeip" style="width:30%;height:100%;" readonly>
+                    <input type="button" id="zipCodebtn" value="찾기">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3 px-0">주소</div>
+                <div class="col-9 px-0">
+                    <input type="text" id="addressip" style="width:100%;height:100%;" readonly>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3 px-0">상세주소</div>
+                <div class="col-9 px-0">
+                    <input type="text" id="datailAddressip" style="width:100%;height:100%;">
+                </div>
+            </div>
+
+            <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+            <script>
+                let zipCodeip = document.getElementById("zipCodeip");
+                let zipCodebtn = document.getElementById("zipCodebtn");
+                let addressip = document.getElementById("addressip");
+                let datailAddressip = document.getElementById("datailAddressip");
+                zipCodebtn.addEventListener("click", postcode);
+                function postcode() {
+                    new daum.Postcode({
+                        oncomplete: function (data) {
+                            zipCodeip.value = data.zonecode;
+                            addressip.value = data.roadAddress;
+                        },
+                        theme: {
+                            bgColor: "#162525", //바탕 배경색
+                            searchBgColor: "#162525", //검색창 배경색
+                            contentBgColor: "#162525", //본문 배경색(검색결과,결과없음,첫화면,검색서제스트)
+                            pageBgColor: "#162525", //페이지 배경색
+                            textColor: "#FFFFFF", //기본 글자색
+                            queryTextColor: "#FFFFFF", //검색창 글자색
+                            //postcodeTextColor: "", //우편번호 글자색
+                            //emphTextColor: "", //강조 글자색
+                            outlineColor: "#444444" //테두리
+                        }
+                    }).open();
+                }
+            </script>
+
+            <div class="row text-center justify-content-center">
+                <div class="col-3">
+                    <input type="submit" id="signUpbtn" value="회원가입">
+                </div>
+                <div class="col-3">
+                    <input type="button" id="resetbtn" value="다시 입력">
+                </div>
+                <script>
+                    let resetbtn = document.getElementById("resetbtn");
+                    resetbtn.addEventListener("click", function () {
+                        idresult = false;
+                        pwresult = false;
+                        nameresult = false;
+                        phoneresult = false;
+                        emailresult = false;
+                        idip.value = "";
+                        pw1ip.value = "";
+                        pw1check.innerHTML = "";
+                        pw2ip.value = "";
+                        pw2check.innerHTML = "";
+                        nameip.value = "";
+                        namecheck.innerHTML = "";
+                        phoneip.value = "";
+                        phonecheck.innerHTML = "";
+                        emailip.value = "";
+                        emailcheck.innerHTML = "";
+                        zipCodeip.value = "";
+                        addressip.value = "";
+                        datailAddressip.value = "";
+                    })
+                </script>
+            </div>
+        </form>
+
+        <script>
+            document.getElementById("frm").onsubmit = function () {
+                if (!idresult) {
+                    Swal.fire({
+                        title: 'ID Error!',
+                        text: '아이디를 확인하세요!',
+                        icon: 'error',
+                        footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                    return false;
+                }
+                if (!pwresult) {
+                    Swal.fire({
+                        title: 'PW Error!',
+                        text: '비밀번호를 확인하세요!',
+                        icon: 'error',
+                        footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                    return false;
+                }
+                if (!nameresult) {
+                    Swal.fire({
+                        title: 'NAME Error!',
+                        text: '이름을 확인하세요!',
+                        icon: 'error',
+                        footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                    return false;
+                }
+                if (!phoneresult) {
+                    Swal.fire({
+                        title: 'PHONENUMBER Error!',
+                        text: '전화번호를 확인하세요!',
+                        icon: 'error',
+                        footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                    return false;
+                }
+                if (!emailresult) {
+                    Swal.fire({
+                        title: 'EMAIL Error!',
+                        text: '이메일을 확인하세요!',
+                        icon: 'error',
+                        footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                    return false;
+                }
+                if (!addessresult) {
+                    Swal.fire({
+                        title: 'ADDRESS Error!',
+                        text: '주소를 확인하세요!',
+                        icon: 'error',
+                        footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                    return false;
+                }
+
+                Swal.fire({
+                    title: '성공!',
+                    text: '회원가입을 축하합니다!',
+                    icon: 'error',
+                    footer: '<a href="">Why do I have this issue?</a>'
+                })
+                return false;
+            };
+        </script>
+    </div>
+</body>
+
+</html>
