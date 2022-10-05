@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script 
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" 
+        crossorigin="anonymous">
+    </script>
+    <style>
+        div{border:1px  solid black;}
+        .box{
+            width:100px;
+            height:100px;
+            position: relative;
+            left:100px;
+        }
+        .box>img{
+            width:100%;
+            height:100%;
+        }
+        #box2{
+            top:100px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="box1" class="box"><img src="https://gif.fmkorea.com/files/attach/new2/20210917/486263/2978076698/3920645957/853c3b3bfbde2a61b9323a3ba464cb9c.gif" id="icon" alt=""></div>
+    <div id="box2" class="box"></div>
+    <button id="move">이동</button>
+    <script>
+        $("#move").on("click", function(){
+            $("#box2").append($("#icon"));
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+        </script>
+    <style>
+        .del:hover {
+            cursor: pointer;
+            color: blue;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("#add").on();
+        })
+    </script>
+</head>
+
+<body>
+    <div>파일첨부<input type="button" value="+" id="btn"></div>
+    <div id="contents"></div>
+
+    <script>
+        let count = 0;
+        $("#btn").on("click", function () {
+            if (count < 5) {
+                count+=1;
+                $("#contents").append(
+                    $("<div>").append(
+                        $("<input>").attr("type", "file")).append(
+                            $("<span>").addClass("del").append(
+                                "X").on("click", function () {
+                                    $(this).parent().remove();
+                                    count-=1;
+                                })
+                        )
+                );
+            }
+            else {
+                alert("안돼!");
+            }
+        })
+    </script>
+</body>
+
+</html>

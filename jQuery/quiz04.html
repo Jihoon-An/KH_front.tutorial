@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script 
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" 
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <input type="text" id="pw1"><span id="result1"></span><br>
+    <input type="text" id="pw2"><span id="result2"></span>
+    <script>
+
+        $("#pw1").on("keyup", function(){
+            if($("#pw1").val() == ""){
+                $("#result1").html("패스워드를 입력하세요").css("color", "red");
+                $("#result2").html("");
+            }
+            else if($("#pw1").val() == $("#pw2").val()){
+                $("#result1").html("패스워드가 일치합니다.").css("color", "blue");
+                $("#result2").html("");
+            }
+            else if($("#pw2").val() != ""){
+                $("#result1").html("패스워드가 일치하지 않습니다.").css("color", "red");
+                $("#result2").html("");
+            }
+        })
+
+        $("#pw2").on("keyup", function(){
+            if($("#pw1").val() == $("#pw2").val()){
+                $("#result1").html("");
+                $("#result2").html("패스워드가 일치합니다.").css("color", "blue");
+            }
+            else{
+                $("#result1").html("");
+                $("#result2").html("패스워드가 일치하지 않습니다.").css("color", "red");
+            }
+        })
+    </script>
+</body>
+</html>

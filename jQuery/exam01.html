@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script 
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" 
+        crossorigin="anonymous">
+    </script>
+    <style>
+        div{border: 1px solid black;}
+        #box{width: 200px; height: 200px;}
+    </style>
+</head>
+
+<body>
+
+    <div id="box"></div>
+    <script>
+        $("#box").html("Hi~");
+        console.log($("#box").html());
+
+        $("#box").css("background-color", "pink").css("color", "white");
+    </script>
+
+</body>
+
+</html>

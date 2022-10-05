@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script 
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" 
+        crossorigin="anonymous">
+    </script>
+    <style>
+        div{border: 1px solid black;}
+    </style>
+</head>
+<body>
+    <div id="box">
+        기존 데이터
+    </div>
+
+    <script>
+        let prependBtn = $("<button>");
+        prependBtn.html("Prepend");
+
+        let prependDiv = $("<div>");
+        prependDiv.append(prependBtn);
+
+        let appendDiv = $("<div>");
+        let appendInput = $("<input>");
+        appendInput.attr("type", "text");
+        appendDiv.append(appendInput);
+
+        $("#box").prepend(prependDiv);
+        $("#box").append(appendDiv);
+        $("#box").before("여기는 before");
+        $("#box").after("여기는 after");
+    </script>
+</body>
+</html>

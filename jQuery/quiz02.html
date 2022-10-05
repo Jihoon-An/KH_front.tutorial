@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script 
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <p id="p1">p1</p>
+    <p id="p2">p2</p>
+    <p id="p3">p3</p>
+    <p id="p4">p4</p>
+    <input type="text" name="" id="line">
+    <input type="text" name="" id="color">
+    <button id="btn">적용</button>
+    <script>
+        $("#btn").on("click", function(){
+           let line = $("#line");
+           let color = $("#color");
+           $("#p"+line.val()).css("background-color", color.val());
+           line.val("");
+           color.val("");
+        });
+    </script>
+</body>
+</html>

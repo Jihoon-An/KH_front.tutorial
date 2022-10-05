@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script 
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" 
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <input type="text" id="num1"><input type="text" id="num2"><button id="btn">+</button>
+    <div id="result"></div>
+    <script>
+        var num1 = $("#num1");
+        var num2 = $("#num2");
+        var btn = $("#btn");
+        $("#btn").on("click", function(){
+            $("#result").html(parseInt($("#num1").val()) + parseInt($("#num2").val()));
+            $("#num1").val(""); $("#num2").val("");
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+        </script>
+    <style>
+        .container td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Input Controls</legend>
+        <input type="text" id="inputTitle" placeholder="제목"><br>
+        <input type="text" id="inputContent" placeholder="내용"><br>
+        <input type="text" id="inputWriter" placeholder="작성자"><button id="add" style="margin-left: 10px">추가하기</button>
+    </fieldset>
+    <hr>
+    <table class="container">
+        <tr class="header">
+            <td class="title">제목</td>
+            <td class="content">내용</td>
+            <td class="writer">작성자</td>
+            <td class="delBtn">삭제</td>
+        </tr>
+    </table>
+    <script>
+        function Posting(title, content, writer, delBtn) {
+            this.title = title; this.content = content; this.writer = writer; this.delBtn = delBtn;
+        };
+
+        let posts = [];
+
+        $("#add").on("click", function () {
+            let post = new Posting(
+                $("#inputTitle").val(),
+                $("#inputContent").val(),
+                $("#inputWriter").val(),
+                $("<button>").css("margin", "auto").html("X")
+            );
+
+            posts.push(post);
+
+            post.delBtn.on("click", function () {
+                $(this).closest("tr").children().slideUp(1000,function(){(this).closest("tr").remove()});
+                posts.splice(post,1);
+                $("#inputTitle").focus();
+            });
+
+            console.log(posts);
+
+            let title = $("<td>").attr("class", "title").html(post.title);
+            let content = $("<td>").attr("class", "content").html(post.content);
+            let writer = $("<td>").attr("class", "writer").html(post.writer);
+            let delBtn = $("<td>").attr("class", "delBtn").css("text-align", "center").html(post.delBtn);
+
+            $(".container").append($("<tr>").attr("class", "contents").append(title).append(content).append(writer).append(delBtn).hide().fadeIn(1000));
+
+            $("#inputTitle").val(""); $("#inputContent").val(""); $("#inputWriter").val("");
+            $("#inputTitle").focus();
+        });
+
+    </script>
+</body>
+
+</html>

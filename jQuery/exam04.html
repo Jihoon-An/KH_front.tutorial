@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+        </script>
+</head>
+
+<body>
+    <button class="btn">button1</button>
+    <button class="btn">button2</button>
+    <button class="btn">button3</button>
+    <button class="btn">button4</button>
+    <button class="btn">button5</button>
+    <script>
+        /*
+        let btns = document.getElementsByClassName("btn");
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].onclick() = function () {
+                alert(btns.innerHTML);
+            }
+        };
+        */
+
+        $(".btn").on("click", function(){
+            alert($(this).html());
+        });
+        
+    </script>
+</body>
+
+</html>

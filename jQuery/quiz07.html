@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+        </script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 1000px;
+            margin: auto;
+        }
+
+        .header{
+            background-color: #99f999;
+            border-radius: 9px;
+        }
+
+        .header {
+            padding: 10px;
+        }
+
+        .header>#inputContent {
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+        }
+
+        .header>#inputTitle {
+            width: 50%;
+        }
+
+        .header>#inputWriter {
+            width: 15%;
+        }
+
+        #posts {
+            width: 100%;
+        }
+
+        .cnt {
+            width: 80%;
+        }
+
+        .delBtn {
+            position: relative;
+            text-align: center;
+            left: 50%;
+            transform: translate(-50%);
+            width: 70px;
+            height: 70px;
+            font-size: larger;
+            font-weight: bold;
+            border-radius: 15px;
+            border-style: hidden
+        }
+
+        .title {
+            font-size: larger;
+            font-weight: bold;
+        }
+        .writer {
+            font-size: small;
+        }
+        span{
+            margin: 10px;
+        }
+        .cntTitle{
+            background-color: #f9f199;
+            border-radius: 15px;
+        }
+        .cntContent{
+            background-color: #f9f1ff;
+            border-radius: 5px;
+        }
+        .delBtn:hover{
+            cursor: pointer;
+            color:cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <input type="text" id="inputTitle" placeholder="제목">
+            <input type="text" id="inputWriter" placeholder="작성자">
+            <button id="addBtn" style="margin-left: 10px">작성하기</button>
+            <br>
+            <textarea id="inputContent"></textarea>
+        </div>
+
+        <hr>
+
+        <table id="posts"></table>
+
+    </div>
+    <script>
+        $("#addBtn").on("click",function(){
+            let title = $("#inputTitle");
+            let writer = $("#inputWriter");
+            let content = $("#inputContent");
+            
+            let tdCnt = $("<td>").addClass("cnt");
+                tdCnt.append($("<div>").addClass("cntTitle").append($("<span>").addClass("title").append(title.val())));
+                tdCnt.append($("<div>").addClass("cntWriter").append($("<span>").addClass("writer").append(writer.val())));
+                tdCnt.append($("<div>").addClass("cntContent").append($("<span>").addClass("content").append(content.val())));
+            let tdDel = $("<td>").addClass("del");
+                tdDel.append($("<div>").append($("<button>").addClass("delBtn").append("삭제").on("click", function(){
+                    $(this).closest("tr").remove();
+                })));
+            let trPost = $("<tr>").addClass("post").append($(tdCnt)).append(tdDel);
+
+            $("#posts").append(trPost);
+            title.val(""); writer.val(""); content.val("");
+        });
+
+    </script>
+</body>
+
+</html>

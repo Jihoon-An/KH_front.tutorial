@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+        </script>
+    <style>
+        .container {
+            text-align: center;
+        }
+
+        .main {
+            overflow-y: scroll;
+            margin: auto;
+            width: 500px;
+            height: 400px;
+            border: 1px solid black;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main"></div>
+        <button id="up">위로 추가 하기</button>
+        <button id="down">아래로 추가 하기</button>
+
+    </div>
+    <script>
+        let num = 1;
+        $("#up").on("click", function () {
+            let mainDiv = $("<div>");
+            mainDiv.append("New Line : " + num++);
+            $(".main").prepend(mainDiv);
+        });
+        $("#down").on("click", function () {
+            let mainDiv = $("<div>");
+            mainDiv.html("New Line : " + num++)
+            $(".main").append(mainDiv);
+        });
+    </script>
+</body>
+
+</html>
